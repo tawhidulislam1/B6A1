@@ -1,3 +1,4 @@
+// Problem 1
 const formatValue = (
   input: string | number | boolean
 ): string | number | boolean => {
@@ -10,5 +11,13 @@ const formatValue = (
   }
 };
 
+// Problem 2
 
-
+const getLength = (input: string | any[]): number => {
+  if (typeof input === "string") {
+    return input.length;
+  } else if (Array.isArray(input)) {
+    return input.length;
+  }
+  return 0;
+};
