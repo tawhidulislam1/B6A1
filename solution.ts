@@ -111,6 +111,29 @@ const getUniqueValues = (
 
   return newArray;
 };
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-console.log(getUniqueValues(array1, array2));
+
+//? problem 7
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+
+const calculateTotalPrice = (products: Product[]): number => {
+  return products.reduce((total, product) => {
+    const productTotal = product.price * product.quantity;
+    const finalTotal = product.discount
+      ? productTotal * (1 - product.discount / 100)
+      : productTotal;
+    console.log(productTotal);
+    return total + finalTotal;
+  }, 0);
+};
+const products = [
+  { name: "Pen", price: 10, quantity: 2 },
+  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
+  { name: "Bag", price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
