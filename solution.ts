@@ -36,8 +36,81 @@ class Person {
   }
 }
 
-const person1 = new Person("John Doe", 30);
-console.log(person1.getDetails());
+//? problem 4
 
-const person2 = new Person("Alice", 25);
-console.log(person2.getDetails());
+type Item = {
+  title: string;
+  rating: number;
+};
+const filterByRating = (value: Item[]): Item[] => {
+  return value.filter((book) => book.rating > 4);
+};
+
+//? problem 5
+
+type Users = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+};
+const filterActiveUsers = (input: Users[]): Users[] => {
+  const filter = input.filter((value) => value.isActive);
+  return [...filter];
+};
+
+//? problem 6
+
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const printBookDetails = (input: Book): void => {
+  console.log(
+    `Title: ${input.title}, Author: ${input.author}, Published: ${
+      input.publishedYear
+    }, Available: ${input.isAvailable ? "Yes" : "No"}`
+  );
+};
+
+//? problem 7
+
+const getUniqueValues = (
+  array1: (number | string)[],
+  array2: (number | string)[]
+): (number | string)[] => {
+  const newArray: (number | string)[] = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    let found = false;
+    for (let j = 0; j < newArray.length; j++) {
+      if (newArray[j] === array1[i]) {
+        found = true;
+      }
+    }
+
+    if (!found) {
+      newArray.push(array1[i]);
+    }
+  }
+  for (let i = 0; i < array2.length; i++) {
+    let found = false;
+    for (let j = 0; j < newArray.length; j++) {
+      if (newArray[j] === array2[i]) {
+        found = true;
+      }
+    }
+
+    if (!found) {
+      newArray.push(array2[i]);
+    }
+  }
+
+  return newArray;
+};
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+console.log(getUniqueValues(array1, array2));
