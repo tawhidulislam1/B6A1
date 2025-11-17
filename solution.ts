@@ -1,4 +1,4 @@
-// Problem 1
+
 const formatValue = (
   input: string | number | boolean
 ): string | number | boolean => {
@@ -11,7 +11,7 @@ const formatValue = (
   }
 };
 
-// Problem 2
+
 
 const getLength = (input: string | any[]): number => {
   if (typeof input === "string") {
@@ -22,7 +22,6 @@ const getLength = (input: string | any[]): number => {
   return 0;
 };
 
-//? Problem 3
 
 class Person {
   name: string;
@@ -32,11 +31,10 @@ class Person {
     (this.name = name), (this.age = age);
   }
   getDetails() {
-    return `Name: ${this.name}, Age: ${this.age}`;
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
 
-//? problem 4
 
 type Item = {
   title: string;
@@ -46,7 +44,7 @@ const filterByRating = (value: Item[]): Item[] => {
   return value.filter((book) => book.rating > 4);
 };
 
-//? problem 5
+
 
 type Users = {
   id: number;
@@ -59,7 +57,6 @@ const filterActiveUsers = (input: Users[]): Users[] => {
   return [...filter];
 };
 
-//? problem 6
 
 interface Book {
   title: string;
@@ -76,7 +73,6 @@ const printBookDetails = (input: Book): void => {
   );
 };
 
-//? problem 7
 
 const getUniqueValues = (
   array1: (number | string)[],
@@ -112,7 +108,6 @@ const getUniqueValues = (
   return newArray;
 };
 
-//? problem 7
 type Product = {
   name: string;
   price: number;
@@ -126,14 +121,6 @@ const calculateTotalPrice = (products: Product[]): number => {
     const finalTotal = product.discount
       ? productTotal * (1 - product.discount / 100)
       : productTotal;
-    console.log(productTotal);
     return total + finalTotal;
   }, 0);
 };
-const products = [
-  { name: "Pen", price: 10, quantity: 2 },
-  { name: "Notebook", price: 25, quantity: 3, discount: 10 },
-  { name: "Bag", price: 50, quantity: 1, discount: 20 },
-];
-
-console.log(calculateTotalPrice(products));
